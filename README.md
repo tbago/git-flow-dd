@@ -22,6 +22,6 @@ GitFlow使用时需要保持分支的整洁和采用正确的命名规则。GitF
 将release/vx.x.x合并到develop分支和master分支。然后在master分支上打tag，tag采用vx.x.x作为名称，需要保证和release分支版本号保持一致。同时如果集成了CI/CD流程可以通过github workflow直接触发发布流程，打包上传到相关平台进行发布操作。
 
 ### 特别说明：
-1、github由于经常被墙，所以采用github需要自备梯子；
-2、github对于个人开发者是免费的，但对于企业用户是需要按人头收费的，同时对于后期做CI/CD的github workflow也是需要收费的。但相对于自己租服务器还是实惠很多的；
+* 1、github由于经常被墙，所以采用github需要自备梯子；
+* 2、github对于个人开发者是免费的，但对于企业用户是需要按人头收费的，同时对于后期做CI/CD的github workflow也是需要收费的。但相对于自己租服务器还是实惠很多的；
 
