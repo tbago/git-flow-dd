@@ -12,11 +12,11 @@ GitFlow使用时需要保持分支的整洁和采用正确的命名规则。GitF
 * 同时对于commit message必须做到清晰，明确，bugfix要写明发生的原因和修正的方法。
 * 同时可以基于当前的pull request编号，添加CHANGELOG.md,格式参照项目上传的demo log。
 * 对于pull request可以采用多次提交，每次提交只改特定的功能，这样提交日志更加清晰。
-* 合并方法，参照文档[merge method](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-merge-methods-on-github),有三种merge方法，在项目的Settings->Options中可以选择支持的merge方法，个人建议采用squash merge的方法，这个方法会将分支上的提交合并为一个新的commit，因为这些分支本身是会立即删除的，这样的话提交的commit会比较美观；
+* 合并方法，参照文档[merge method](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-merge-methods-on-github),有三种merge方法，在项目的Settings->Options中可以选择支持的merge方法，个人建议采用squash merge的方法，这个方法会将分支上的提交合并为一个新的commit，因为这些分支本身是会立即删除的，这样的话提交的commit会比较美观；但是对于release分支，合并到其他分支建议采用rebase方式合并。
 
 ### 发布预热：
 当需要发布新的版本时，需要从develop分支上创建新的release分支，release分支命名为release/vx.x.x。建议采用major，minor，patch三位作为版本号。在定义relase分支时最好和产品开会，确保完成了所有feature的开发，同时必须要保证不能在加入新的feature。relase分支只支持测试发现的bug修正，即只能pull request bugfix/xxx分支。当release分支完成开发并通过测试后，进入实际的发布流程。
-
+对于线上发现的bug，需要采用hotfix/作为前缀的分支，并且需要合并到master和develop分支，同时需要打tag重新发布版本。
 
 ### 版本发布：
 将release/vx.x.x合并到develop分支和master分支。然后在master分支上打tag，tag采用vx.x.x作为名称，需要保证和release分支版本号保持一致。同时如果集成了CI/CD流程可以通过github workflow直接触发发布流程，打包上传到相关平台进行发布操作。
